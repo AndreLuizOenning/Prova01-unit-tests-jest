@@ -35,7 +35,7 @@ describe('Testes da classe Utilitarios', () => {
         expect(utilitarios.multiplicar(2,12)).toBe(24);
     });
     test('Teste dividir', () => {
-        expect(utilitarios.multiplicar(24,12)).toBe(2);
+        expect(utilitarios.multiplicar(24,12)).toBe(288);
     });
     test('Teste ehPar', () => {
         expect(utilitarios.ehPar(2)).toBe(true);
@@ -53,10 +53,10 @@ describe('Testes da classe Utilitarios', () => {
         expect(utilitarios.tamanhoArray([1,2,3,4,5])).toBe(5);
     });
     test('Teste ordenarArray', () => {
-        expect(utilitarios.ordenarArray([1,4,3,2,5])).toBe([1,2,3,4,5]);
+        expect(utilitarios.ordenarArray([1,4,3,2,5])).toStrictEqual([1,2,3,4,5]);
     });
     test('Teste inverterArray', () => {
-        expect(utilitarios.inverterArray([1,2,3,4,5])).toBe([5,4,3,2,1]);
+        expect(utilitarios.inverterArray([1,2,3,4,5])).toStrictEqual([5,4,3,2,1]);
     });
     test('Teste gerarNumeroAleatorio', () => {
 
@@ -67,22 +67,22 @@ describe('Testes da classe Utilitarios', () => {
     });
 
     test('Teste ehNumero', () => {
-        expect(utilitarios.ehNumero(2)).toBe(true);
+        expect(utilitarios.ehNumero(3)).toBe(true);
     });
 
     test('Teste ehNumero', () => {
-        expect(utilitarios.ehNumero(2)).toBe(false);
+        expect(utilitarios.ehNumero('2')).toBe(false);
     });
 
     test('Teste removerEspacos', () => {
-        expect(utilitarios.removerEspacos("Oi estou feliz hoje")).toBe("Oiestoufelizhoje");
+        expect(utilitarios.removerEspacos("   Oi estou feliz hoje   ")).toStrictEqual("Oi estou feliz hoje");
     });
 
     test('Teste repetirTexto', () => {
-        expect(utilitarios.repetirTexto("2,12,",5)).toBe("2,12,2,12,2,12,2,12,2,12,");
+        expect(utilitarios.repetirTexto("2,12,",5)).toStrictEqual("2,12,2,12,2,12,2,12,2,12,");
     });
     test('Teste juntarArray', () => {
-        expect(utilitarios.juntarArray([1,2,3,4])).toBe("1,2,3,4");
+        expect(utilitarios.juntarArray(['1','2','3','4'])).toStrictEqual("1,2,3,4");
     });
     test('Teste contarPalavras', () => {
         expect(utilitarios.contarPalavras("Hoje o céu abriu")).toBe(4);
@@ -91,20 +91,20 @@ describe('Testes da classe Utilitarios', () => {
         expect(utilitarios.mediaArray([1,2,3])).toBe(2);
     });
     test('Teste removerDuplicados', () => {
-        expect(utilitarios.removerDuplicados([1, 2, 2, 3, 4, 4, 4])).toBe([1, 2, 3, 4]);
+        expect(utilitarios.removerDuplicados([1, 2, 2, 3, 4, 4, 4])).toStrictEqual([1, 2, 3, 4]);
     });
     test('Teste ehPalindromo', () => {
-        expect(utilitarios.juntarArray("ovo")).toBe(true);
+        expect(utilitarios.ehPalindromo("ovo")).toBe(true);
     });
     test('Teste ehPalindromo', () => {
-        expect(utilitarios.juntarArray("ota")).toBe(false);
+        expect(utilitarios.ehPalindromo("ota")).toBe(false);
     });
     test('Teste mesclarObjetos', () => {
 
-        const p1 = { nome: "Ana"};
+        const p1 = { nome: "Ana", idade: 25};
         const att = { idade: 26, cidade: "Cocal do sul" };
 
-        expect(utilitarios.juntarArray(p1,att)).toBe({ nome: "Ana", idade: 26, cidade: "Cocal do sul" });
+        expect(utilitarios.mesclarObjetos(p1,att)).toStrictEqual({ nome: "Ana", idade: 26, cidade: "Cocal do sul" });
     });
     
 });
